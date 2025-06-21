@@ -10,7 +10,7 @@ tags: [Astrology]
 
 [3. SirLynn-Mdy - Astrology-Phalita_Veda Planets](/Documents/SirLynn/2025-06-11-SirLynnMdy-3-Planets)
 
-[4. SirLynn-Mdy - Astrology-Phalita_Veda Planets Sambandha](/Documents/SirLynn/2025-06-11-SirLynnMdy-2-Planets-Sambandha)
+[4. SirLynn-Mdy - Astrology-Phalita_Veda Planets Sambandha](/Documents/SirLynn/2025-06-11-SirLynnMdy-3-Planets-Sambandha)
 
 [5. SirLynn-Mdy - Astrology-Phalita_Veda Planets YogaSutra](/Documents/SirLynn/2025-06-11-SirLynnMdy-3-Planets-YogaSutra)
 

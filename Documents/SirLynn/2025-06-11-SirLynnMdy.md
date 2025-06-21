@@ -1,5 +1,5 @@
 ---
-title: "Astrology-Phalita_Veda - Part test"
+title: "Astrology-Phalita_Veda - 1 - 10"
 date: 2025-06-11 00:00:00 +08:00
 categories: [Astrology]
 tags: [Astrology]

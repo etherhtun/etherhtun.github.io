@@ -20,4 +20,4 @@ tags: [Astrology]
 
 [8. SirLynn-Mdy - Astrology-Phalita_Veda Nakshatras](/Documents/SirLynn/2025-06-11-SirLynnMdy-4-Nakshatras)
 
-[9. SirLynn-Mdy - Astrology-Phalita_Veda Nakshatras](/Documents/SirLynn/2025-06-11-SirLynnMdy-5-KnowledgeSharing)
+[9. SirLynn-Mdy - Astrology-Phalita_Veda KnowledgeSharing](/Documents/SirLynn/2025-06-11-SirLynnMdy-5-KnowledgeSharing)

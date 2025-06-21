@@ -34,7 +34,7 @@ tags: [Astrology]
     
     - **ဖလိတဝေဒ ၂**
         
-        ![image.png](/images/image.png)
+        ![image.png](/Documents/SirLynn/images/image.png)
         
         
         ၁၂.ရာသီခွင်ဆိုတာ ဘယ်လိုမျိုးလည်း
@@ -180,7 +180,7 @@ tags: [Astrology]
 
     - **ဖလိတဝေဒ ၄**
         
-        ![image.png](/images/image%202.png)
+        ![image.png](/Documents/SirLynn/images/image%202.png)
         
         ရာသီသဘော ဆိုတာ  ဘယ်လိုလဲ ရာသီသဘော တနည်းအားဖြင့်  ရာသီ‌အကြောင်းကိုစဉ်းစားမယ် ပြောတော့မယ်ဆိုရင် ရာသီ ထဲတွင်
         ကိန်းအောင်းနေတဲ့ သဘော သဘာဝ တရားတွေ ချန်ထားလို့မရပါဘူး ။
@@ -597,7 +597,7 @@ tags: [Astrology]
 
     - **ဖလိတဝေဒ ၉**
         
-        ![image.png](/images/image%203.png)
+        ![image.png](/Documents/SirLynn/images/image%203.png)
         
     - ၇.တန့် ..ပထနီ ဘာဝ....မယား (သို့) လင် ...လက်ထပ်ထိမ်းမြှားခြင်း။  ပါတနာ ရှယ်ယာ အစုစပ် လုပ်ကိုင်ခြင်း ...ပြည်သူ လူထု သဘင် ဗိုပုံအလယ် ကာမဂုဏ် အရေး ခရီးသွားလာရေး ။
     
@@ -653,7 +653,7 @@ tags: [Astrology]
 
 - **ဖလိတဝေဒ ၁၀**
     
-    ![image.png](/images/image%204.png)
+    ![image.png](/Documents/SirLynn/images/image%204.png)
     
     
     

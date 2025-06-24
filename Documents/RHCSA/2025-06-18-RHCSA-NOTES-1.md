@@ -210,4 +210,37 @@ lid -g sales            # check all users under sales group
     - chmod o-w newfiles/   # remove write pemission from owner
     - #if user own folder, he/she can delete files or folder under his/her own directory 
     - set command "umask 077" in .bashrc, make user can run script in bash shell  
+
+
+
+# Lesson 11 - Managing network configuration 
+
+ - NIC Naming
+    -  em[1-N] for embedded NICs
+    -  eno [nn] for embedded NICs
+    - p<slot>p<port> for NICs on the PCI bus
+    - "ip link show" and "ip addr"can get bios nic name and mac-address 
+        ```bash
+        etherhtun@x:~$ ip link show
+        1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+            link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+        2: enp0s31f6: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN mode DEFAULT group default qlen 1000
+            link/ether 48:2a:e3:7e:5d:fe brd ff:ff:ff:ff:ff:ff
+            altname enx482ae37e5dfe
+        3: wlp82s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DORMANT group default qlen 1000
+            link/ether 9e:9f:8f:84:12:a9 brd ff:ff:ff:ff:ff:ff permaddr 6c:6a:77:ed:76:41
+            altname wlx6c6a77ed7641
+      -------------------------------------------
+        etherhtun@x:~$ ip link show
+        1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+            link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+        2: enp0s31f6: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN mode DEFAULT group default qlen 1000
+            link/ether 48:2a:e3:7e:5d:fe brd ff:ff:ff:ff:ff:ff
+            altname enx482ae37e5dfe
+        3: wlp82s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DORMANT group default qlen 1000
+            link/ether 9e:9f:8f:84:12:a9 brd ff:ff:ff:ff:ff:ff permaddr 6c:6a:77:ed:76:41
+            altname wlx6c6a77ed7641
+        ```
+
+
 ---

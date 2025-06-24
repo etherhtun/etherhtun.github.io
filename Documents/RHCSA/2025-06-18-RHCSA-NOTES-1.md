@@ -220,7 +220,7 @@ lid -g sales            # check all users under sales group
     -  eno [nn] for embedded NICs
     - p<slot>p<port> for NICs on the PCI bus
     - "ip link show" and "ip addr"can get bios nic name and mac-address 
-        ```bash
+        ```shell script
         etherhtun@x:~$ ip link show
         1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
             link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00

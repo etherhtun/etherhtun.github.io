@@ -1,9 +1,13 @@
 ---
-title: "Astrology-Phalita_Veda - SirLynn-MDY"
+title: "Astrology-Phalita_Veda Dashboard"
 date: 2025-06-11 00:00:00 +08:00
 categories: [Astrology]
 tags: [Astrology]
 ---
+
+
+# Sirlynn MDY Facebook  ပို့ချချက်များ 
+
 [1. SirLynn-Mdy - Astrology-Phalita_Veda Intro](/Documents/SirLynn/2025-06-11-SirLynnMdy-1-Intro)
 
 [2. SirLynn-Mdy - Astrology-Phalita_Veda Zodiac Signs](/Documents/SirLynn/2025-06-11-SirLynnMdy-2-ZodiacSigns)
@@ -21,3 +25,8 @@ tags: [Astrology]
 [8. SirLynn-Mdy - Astrology-Phalita_Veda Nakshatras](/Documents/SirLynn/2025-06-11-SirLynnMdy-4-Nakshatras)
 
 [9. SirLynn-Mdy - Astrology-Phalita_Veda KnowledgeSharing](/Documents/SirLynn/2025-06-11-SirLynnMdy-5-KnowledgeSharing)
+
+
+# Astrology Books 
+
+[Astrology Books](https://mega.nz/folder/TURhTT7a#ctNCr5ZRJJ6QR794-IEjuw)

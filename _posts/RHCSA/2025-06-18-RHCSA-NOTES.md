@@ -277,6 +277,15 @@ lid -g sales            # check all users under sales group
     - rpm -ql                                   # list files installed from a package
     - rpm -q --scripts                          # show scrpits executed while installation th packages 
 
- [outputs](/Documents/RHCSA/Lesson12-Managing-Software)   
+
+- Understanding repo 
+    - dnf list                                  # check available package to install 
+    - dnf serch                                 # name and summary 
+    - dnf search all seinfo                     # name, summary and description 
+    - dnf install                               # install software 
+    - dnf remove                                # remove software
+    - dnf update                                # update software  
+ [outputs](/Documents/RHCSA/Lesson12-Managing-Software.txt)   
+
 
 ---

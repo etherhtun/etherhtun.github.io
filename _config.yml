@@ -121,7 +121,7 @@ comments:
     issue_term: # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
-    repo: /etherhtun/etherhtun.github.io # <gh-username>/<repo>
+    repo: etherhtun/etherhtun.github.io # <gh-username>/<repo>
     repo_id: R_kgDOO99zFg
     category: General
     category_id: DIC_kwDOO99zFs4Cr9LI

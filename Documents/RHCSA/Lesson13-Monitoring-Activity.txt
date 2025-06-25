@@ -1,0 +1,147 @@
+
+etherhtun@x:~$ ps -aux | more
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.0  38792 21324 ?        Ss   Jun24   0:31 /usr/lib/systemd/systemd --switched-root --system --deserialize=52 rhgb
+root           2  0.0  0.0      0     0 ?        S    Jun24   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        S    Jun24   0:00 [pool_workqueue_release]
+root           4  0.0  0.0      0     0 ?        I<   Jun24   0:00 [kworker/R-rcu_gp]
+root           5  0.0  0.0      0     0 ?        I<   Jun24   0:00 [kworker/R-sync_wq]
+root           6  0.0  0.0      0     0 ?        I<   Jun24   0:00 [kworker/R-kvfree_rcu_reclaim]
+root           7  0.0  0.0      0     0 ?        I<   Jun24   0:00 [kworker/R-slub_flushwq]
+root           8  0.0  0.0      0     0 ?        I<   Jun24   0:00 [kworker/R-netns]
+root          13  0.0  0.0      0     0 ?        I<   Jun24   0:00 [kworker/R-mm_percpu_wq]
+root          15  0.0  0.0      0     0 ?        I    Jun24   0:00 [rcu_tasks_kthread]
+root          16  0.0  0.0      0     0 ?        I    Jun24   0:00 [rcu_tasks_rude_kthread]
+root          17  0.0  0.0      0     0 ?        I    Jun24   0:00 [rcu_tasks_trace_kthread]
+root          18  0.0  0.0      0     0 ?        S    Jun24   0:35 [ksoftirqd/0]
+root          19  0.0  0.0      0     0 ?        I    Jun24   0:32 [rcu_preempt]
+root          20  0.0  0.0      0     0 ?        S    Jun24   0:00 [rcu_exp_par_gp_kthread_worker/0]
+root          21  0.0  0.0      0     0 ?        S    Jun24   0:00 [rcu_exp_gp_kthread_worker]
+root          22  0.0  0.0      0     0 ?        S    Jun24   0:00 [migration/0]
+root          23  0.0  0.0      0     0 ?        S    Jun24   0:00 [idle_inject/0]
+root          24  0.0  0.0      0     0 ?        S    Jun24   0:00 [cpuhp/0]
+root          25  0.0  0.0      0     0 ?        S    Jun24   0:00 [cpuhp/1]
+
+
+etherhtun@x:~$ free -m 
+               total        used        free      shared  buff/cache   available
+Mem:           64061       20541        8777       10270       46290       43519
+Swap:           8191           0        8191
+
+
+
+etherhtun@x:~$ lscpu 
+Architecture:                x86_64
+  CPU op-mode(s):            32-bit, 64-bit
+  Address sizes:             39 bits physical, 48 bits virtual
+  Byte Order:                Little Endian
+CPU(s):                      12
+  On-line CPU(s) list:       0-11
+Vendor ID:                   GenuineIntel
+  Model name:                Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz
+    CPU family:              6
+    Model:                   158
+    Thread(s) per core:      2
+    Core(s) per socket:      6
+    Socket(s):               1
+    Stepping:                10
+    CPU(s) scaling MHz:      31%
+    CPU max MHz:             4500.0000
+    CPU min MHz:             800.0000
+    BogoMIPS:                5199.98
+    Flags:                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_ts
+                             c art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm p
+                             cid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb pti ssbd ibrs ibpb stibp tpr_shadow
+                              flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm
+                              ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp vnmi md_clear flush_l1d arch_capabilities
+Virtualization features:     
+  Virtualization:            VT-x
+Caches (sum of all):         
+  L1d:                       192 KiB (6 instances)
+  L1i:                       192 KiB (6 instances)
+  L2:                        1.5 MiB (6 instances)
+  L3:                        12 MiB (1 instance)
+NUMA:                        
+  NUMA node(s):              1
+  NUMA node0 CPU(s):         0-11
+Vulnerabilities:             
+  Gather data sampling:      Mitigation; Microcode
+  Ghostwrite:                Not affected
+  Indirect target selection: Not affected
+  Itlb multihit:             KVM: Mitigation: Split huge pages
+  L1tf:                      Mitigation; PTE Inversion; VMX conditional cache flushes, SMT vulnerable
+  Mds:                       Mitigation; Clear CPU buffers; SMT vulnerable
+  Meltdown:                  Mitigation; PTI
+  Mmio stale data:           Mitigation; Clear CPU buffers; SMT vulnerable
+  Reg file data sampling:    Not affected
+  Retbleed:                  Mitigation; IBRS
+  Spec rstack overflow:      Not affected
+  Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+  Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+  Spectre v2:                Mitigation; IBRS; IBPB conditional; STIBP conditional; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected
+  Srbds:                     Mitigation; Microcode
+  Tsx async abort:           Not affected
+etherhtun@x:~$ 
+
+etherhtun@x:~$ uptime
+ 13:13:58 up 1 day, 12:00,  4 users,  load average: 0.61, 0.70, 0.79
+
+
+etherhtun@x:~$ free -m
+               total        used        free      shared  buff/cache   available
+Mem:           64061       20703        8518       10178       46295       43357
+Swap:           8191           0        8191
+
+
+
+[root@localhost ~]# w
+ 14:09:11 up 31 min,  3 users,  load average: 0.05, 0.03, 0.00
+USER     TTY        LOGIN@   IDLE   JCPU   PCPU WHAT
+student  seat0     13:44    0.00s  0.00s  0.00s /usr/libexec/gdm-wayland-sessio
+student  tty2      13:44    7:08m  0.03s  0.03s /usr/libexec/gnome-session-bina
+anna     tty5      14:08    5.00s  0.15s  0.04s /bin/bash
+[root@localhost ~]# 
+[root@localhost ~]# 
+[root@localhost ~]# loginctl list-users
+ UID USER    LINGER STATE 
+1000 student no     active
+1001 anna    no     online
+
+2 users listed.
+[root@localhost ~]# 
+[root@localhost ~]# 
+[root@localhost ~]# 
+[root@localhost ~]# loginctl list-session 
+Unknown command verb list-session.
+[root@localhost ~]# loginctl list-sessions
+SESSION  UID USER    SEAT  TTY  STATE  IDLE SINCE
+      2 1000 student seat0 tty2 active no        
+      4 1001 anna    seat0 tty5 online no        
+
+2 sessions listed.
+[root@localhost ~]# 
+[root@localhost ~]# loginctl user-status 10001
+Failed to look up user 10001: No such process
+[root@localhost ~]# loginctl user-status 1001
+anna (1001)
+           Since: Wed 2025-06-25 14:08:06 +08; 1min 54s ago
+           State: online
+        Sessions: *4
+          Linger: no
+            Unit: user-1001.slice
+                  ├─session-4.scope
+                  │ ├─3105 "login -- anna"
+                  │ ├─3139 -bash
+                  │ ├─3211 vim myfile
+                  │ └─3212 /bin/bash
+                  └─user@1001.service
+                    └─init.scope
+                      ├─3121 /usr/lib/systemd/systemd --user
+                      └─3124 "(sd-pam)"
+
+Jun 25 14:08:06 localhost.localdomain systemd[3121]: Listening on PipeWire Multimedia System Sockets.
+Jun 25 14:08:06 localhost.localdomain systemd[3121]: Starting Create User's Volatile Files and Directories...
+Jun 25 14:08:06 localhost.localdomain systemd[3121]: Listening on D-Bus User Message Bus Socket.
+Jun 25 14:08:06 localhost.localdomain systemd[3121]: Reached target Sockets.
+Jun 25 14:08:06 localhost.localdomain systemd[3121]: Finished Create User's Volatile Files and Directories.
+Jun 25 14:08:06 localhost.localdomain systemd[3121]: Reached target Basic System.

@@ -18,101 +18,8 @@ root@x:~# rpm -ql coreutils | grep /bin
 /usr/bin/cat
 /usr/bin/chcon
 /usr/bin/chgrp
-/usr/bin/chmod
-/usr/bin/chown
-/usr/bin/chroot
-/usr/bin/cksum
-/usr/bin/comm
-/usr/bin/cp
-/usr/bin/csplit
-/usr/bin/cut
-/usr/bin/date
-/usr/bin/dd
-/usr/bin/df
-/usr/bin/dir
-/usr/bin/dircolors
-/usr/bin/dirname
-/usr/bin/du
-/usr/bin/echo
-/usr/bin/env
-/usr/bin/expand
-/usr/bin/expr
-/usr/bin/factor
-/usr/bin/false
-/usr/bin/fmt
-/usr/bin/fold
-/usr/bin/groups
-/usr/bin/head
-/usr/bin/hostid
-/usr/bin/id
-/usr/bin/install
-/usr/bin/join
-/usr/bin/link
-/usr/bin/ln
-/usr/bin/logname
-/usr/bin/ls
-/usr/bin/md5sum
-/usr/bin/mkdir
-/usr/bin/mkfifo
-/usr/bin/mknod
-/usr/bin/mktemp
-/usr/bin/mv
-/usr/bin/nice
-/usr/bin/nl
-/usr/bin/nohup
-/usr/bin/nproc
-/usr/bin/numfmt
-/usr/bin/od
-/usr/bin/paste
-/usr/bin/pathchk
-/usr/bin/pinky
-/usr/bin/pr
-/usr/bin/printenv
-/usr/bin/printf
-/usr/bin/ptx
-/usr/bin/pwd
-/usr/bin/readlink
-/usr/bin/realpath
-/usr/bin/rm
-/usr/bin/rmdir
-/usr/bin/runcon
-/usr/bin/seq
-/usr/bin/sha1sum
-/usr/bin/sha224sum
-/usr/bin/sha256sum
-/usr/bin/sha384sum
-/usr/bin/sha512sum
-/usr/bin/shred
-/usr/bin/shuf
-/usr/bin/sleep
-/usr/bin/sort
-/usr/bin/split
-/usr/bin/stat
-/usr/bin/stdbuf
-/usr/bin/stty
-/usr/bin/sum
-/usr/bin/sync
-/usr/bin/tac
-/usr/bin/tail
-/usr/bin/tee
-/usr/bin/test
-/usr/bin/timeout
-/usr/bin/touch
-/usr/bin/tr
-/usr/bin/true
-/usr/bin/truncate
-/usr/bin/tsort
-/usr/bin/tty
-/usr/bin/uname
-/usr/bin/unexpand
-/usr/bin/uniq
-/usr/bin/unlink
-/usr/bin/users
-/usr/bin/vdir
-/usr/bin/wc
-/usr/bin/who
-/usr/bin/whoami
-/usr/bin/yes
+
+
 root@x:~# rpm -ql coreutils | grep /bin | wc 
     105     105    1549
 
@@ -133,5 +40,44 @@ sshguard-firewalld.x86_64 2.4.3-5.fc41  fedora
 sshguard-iptables.x86_64  2.4.3-5.fc41  fedora
 sshguard-nftables.x86_64  2.4.3-5.fc41  fedora
 sshuttle.noarch           1.1.1-10.fc42 fedora
+
+
+### install namp 
+
+root@x:~# dnf search nmap 
+Updating and loading repositories:
+Repositories loaded.
+Matched fields: name (exact)
+ nmap.x86_64: Network exploration tool and security scanner
+Matched fields: name, summary
+ golang-github-lair-framework-nmap-devel.noarch: Nmap XML parsing library
+ nmap-ncat.x86_64: Nmap's Netcat replacement
+ perl-Nmap-Parser.noarch: Parse nmap scan data with perl
+ python3-natlas-libnmap.noarch: Python library for nmap tasks, parse and compare/diff scan results
+ python3-nmap.noarch: Python library which helps in using nmap port scanner
+Matched fields: name
+ asnmap.x86_64: Go CLI and Library for quickly mapping organization network ranges using ASN information
+ golang-github-projectdiscovery-asnmap-devel.noarch: Go CLI and Library for quickly mapping organization network ranges using ASN information
+ php-netresearch-jsonmapper.noarch: Map nested JSON structures onto PHP classes, version 5
+ php-netresearch-jsonmapper4.noarch: Map nested JSON structures onto PHP classes, version 4
+Matched fields: summary
+ golang-github-malfunkt-iprange-devel.noarch: IPv4 address parser for the nmap format
+root@x:~# 
+root@x:~# dnf list | grep namp 
+Updating and loading repositories:
+Repositories loaded.
+root@x:~# dnf list | grep nmap 
+Updating and loading repositories:
+Repositories loaded.
+nmap.x86_64                                                                              4:7.92-5.fc42                                                                   <unknown>
+nmap-ncat.x86_64                                                                         4:7.92-5.fc42                                                                   <unknown>
+asnmap.x86_64                                                                            1.0.6-5.fc41                                                                    fedora
+golang-github-lair-framework-nmap-devel.noarch                                           0-15.20200627git3507e0b.fc42                                                    fedora
+golang-github-projectdiscovery-asnmap-devel.noarch                                       1.0.6-5.fc41                                                                    fedora
+php-netresearch-jsonmapper.noarch                                                        5.0.0-2.fc42                                                                    fedora
+php-netresearch-jsonmapper4.noarch                                                       4.5.0-2.fc42                                                                    fedora
+python3-natlas-libnmap.noarch                                                            0.7.1-17.fc42                                                                   fedora
+python3-nmap.noarch                                                                      0.7.1-11.fc42                                                                   fedora
+root@x:~# 
 
 

@@ -25,6 +25,8 @@ root@x:~# rpm -ql coreutils | grep /bin | wc
 
 
 
+
+
 root@x:~# dnf list "ssh*" 
 Updating and loading repositories:
 Repositories loaded.
@@ -79,5 +81,7 @@ php-netresearch-jsonmapper4.noarch                                              
 python3-natlas-libnmap.noarch                                                            0.7.1-17.fc42                                                                   fedora
 python3-nmap.noarch                                                                      0.7.1-11.fc42                                                                   fedora
 root@x:~# 
+
+
 
 

@@ -1,5 +1,5 @@
 ---
-title: "RHCSA NOTES 1 - 12"
+title: "RHCSA NOTES 1"
 date: 2025-06-18 00:00:00 +08:00
 categories: [RHCSA]
 tags: [RHCSA]
@@ -95,7 +95,6 @@ tags: [RHCSA]
 
 ## Lesson 8 - Using root privileges
 
-
 - su -                  # Switch to root with login shell
 - su -c 'command'       # Run one root command
 - sudo command          # Run command as root
@@ -129,7 +128,8 @@ tags: [RHCSA]
     PermitRootLogin no 
 ```
 
-# Lesson 9 - Managing Users and Groups
+
+## Lesson 9 - Managing Users and Groups
 
 - User properties are managed in ** /etc/passwd **
 - User password keep under ** /etc/shadow **  
@@ -182,7 +182,8 @@ tags: [RHCSA]
  passwd 
  ```
 
- # Lesson 10 - Securiing Files with Permissions 
+
+ ## Lesson 10 - Securiing Files with Permissions 
 
  - change ownership 
     - chown user[:group] file  #set user-ownership 
@@ -217,7 +218,7 @@ tags: [RHCSA]
 
 
 
-# Lesson 11 - Managing network configuration 
+## Lesson 11 - Managing network configuration 
 
  - NIC Naming
     -  em[1-N] for embedded NICs
@@ -273,7 +274,7 @@ tags: [RHCSA]
     - ss -tu                                   #  connection status, tu mean tcp/udp 
 
 
-# Lesson 12 - Managing Software 
+## Lesson 12 - Managing Software 
 
 - RPM Packages 
     - rpm -qa                                   # Show the packages that currently installed 

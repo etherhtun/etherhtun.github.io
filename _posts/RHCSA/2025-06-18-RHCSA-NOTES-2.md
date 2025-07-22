@@ -1,5 +1,5 @@
 ---
-title: "RHCSA NOTES 13 - 18"
+title: "RHCSA NOTES 2"
 date: 2025-06-18 00:00:00 +08:00
 categories: [RHCSA]
 tags: [RHCSA]

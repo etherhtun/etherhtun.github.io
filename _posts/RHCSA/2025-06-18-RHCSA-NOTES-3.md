@@ -1,196 +1,188 @@
 ---
-title: "RHCSA NOTES 2"
-date: 2025-06-18 00:00:00 +08:00
+title: "RHCSA NOTES 3"
+date: 2025-11-15 00:00:00 +08:00
 categories: [RHCSA]
 tags: [RHCSA]
 ---
-# Lesson 13 Monitoring Activity
 
-- Managing Shell jobs 
-    - sleep 1000 &                  # & is running in background process 
-    - bg                            # show backgrounds  process 
-    - jobs                          # current running jobs with PID 
-    - fg                            # change from backgroud to foreground process 
+# Lesson 24: Managing SSH 
 
-- Handling Process, CPU & Memory  
-    - ps aux | less  
-    - ps -fax                       # hierarchical process  
-    - ps -fU linda                  # show processes owned by linda 
-    - ps -d --forest -C sshd
-    - ps -eo pid,ppid,user,cmd      # custom show 
-    
-    - free -m                       # memory status
-    - less /proc/meminfo  
+## 24.1 Understanding SSH Key-based Login
+SSH key-based login allows you to authenticate without typing a password.
 
-    - lscpu 
-    - uptime 
-    - dd if=/dev/zero of=/dev/null &   # create process to overload the memory
-    - while true; do :; done & 
-    - cat /dev/zero > /dev/null &
-    - sleep infinity &
-    - yes | dd of=/dev/null &
-    - dd if=/dev/random of=/dev/null bs=1 count=0 &
-    - top 
-[outputs](/Documents/RHCSA/Lesson13-Monitoring-Activity.txt)   
+It uses:
+- **Private key** → stays on your workstation (`~/.ssh/id_rsa`)
+- **Public key** → stored on the server (`~/.ssh/authorized_keys`)
 
-
-## Managing processes 
-
-- man 7 signals 
-- ps aux | grep defunct                 # find the zombie process 
-- ps fax | grep defunct                 # find process forest 
-
-
-### Managinf process prioriy
-
-- nice -n 19 dd if=/dev/zero of=/dev/null &     # set priorty 
-- nice -n -19 dd if=/dev/zero of=/dev/null &    #set low priorty 
-- tuned-adm profile 
-
-- ps -u username 
-- pkill -u linda 
-- loginctl list=users
-- loginctl terminate-user
-
-
-# Lesson 15 - Working with systemd
-
-- Service units to use the start process 
-- Socket units monitor activity on a port and start the corresponding service unit when needed  
-- Timer units are used to start services periodically 
-- Path units can start service units when activity is detected in the file system 
-
-
-- systemctl -t help              # to check the usages 
-- systemctl list-units
-- systemctl list-units -t timer 
-- sytstectl list-units-files 
-
-- systemctl status sshd 
-    - status Active: service status 
-    - loaded:  which configration is loaded. 
-- systemctl start 
-- systemctl stop 
-- systemctl enable [--now]
-- systemctl disable [--now]
-- systemctl reload 
-- systemctl restart 
-
-
-## Systemd file system 
-
-- /usr/lib/systemd/system                   # default file system 
-- /etc/systemd/system                       # custom file system 
-- systemctl cat httpd.service               # show httpd service 
-- systemctl edit httpd.service 
-
-- systemctl list-dependencies               # show dependencies 
-- systemctl list-dependencies sshd.service  # check detail dependencies on ssh service 
-
-
-# lesson 16 Task Scheduling 
-
-- systemd , crond, at  are most common tools to scheduling tasks 
-- dnf install sysstat 
-- systemctl list-unit-files systat* 
-- systemctl cat sysstat-collect.timer 
-
-from pathlib import Path
-
-# Create markdown content for RHCSA Task Scheduling notes
-markdown_content = """# RHCSA Lesson: Task Scheduling
-
-## ✅ Objectives
-- Automate tasks using **`cron`**, **`at`**, and **`systemd timers`**
-- Understand cron syntax and configuration files
-- Manage one-time vs recurring jobs
+Advantages:
+- More secure than passwords
+- Automates scripts (Ansible, rsync)
+- Required for many DevOps tools
 
 ---
 
-## 📆 1. Periodic Task Scheduling with `cron`
+## 24.2 Setting up SSH Key-based Login
 
-### What is `cron`?
-A time-based job scheduler in Linux used to run commands or scripts at specific intervals (minutes, hours, days, etc.).
-
-### Key Files:
-- User crontabs: `/var/spool/cron/username`
-- System-wide crontab: `/etc/crontab`
-- Cron job directories: `/etc/cron.d/`, `/etc/cron.daily/`, `/etc/cron.hourly/`, etc.
-- Log file: `/var/log/cron`
-
-### Cron Syntax (Fields):
-*     *     *     *     *     command
--     -     -     -     -
-|     |     |     |     |
-|     |     |     |     +----- Day of the week (0–7) (Sun=0 or 7)
-|     |     |     +------- Month (1–12)
-|     |     +--------- Day of the month (1–31)
-|     +----------- Hour (0–23)
-+------------- Minute (0–59)
-
-
-**Run a script every day at 2:30 AM:**
-
-```bash 
-30 2 * * * /home/user/backup.sh 
+### Step 1: Create SSH key pair on client
+```bash
+ssh-keygen -t rsa -b 4096
 ```
 
-### Edit crontab 
-```bash 
-crontab -e         # Edit current user's crontab
-crontab -l         # List user's cron jobs
-crontab -r         # Remove current user's crontab
+Keys stored at:
+```
+~/.ssh/id_rsa          (private key)
+~/.ssh/id_rsa.pub      (public key)
 ```
 
-**One-time scheduling with "at"**
-
-```bash 
-echo "shutdown -h now" | at now + 10 minutes
+### Step 2: Copy public key to server
+```bash
+ssh-copy-id user@server
 ```
 
-**Systemd Timers**
-
-- Timer: something.timer
-- Service: something.service
-
-***1. Create a service file /etc/systemd/system/myjob.service***
-
-```bash 
-
-[Unit]
-Description=My periodic job
-
-[Service]
-Type=oneshot
-ExecStart=/usr/local/bin/myscript.sh
-
+Alternative manual method:
+```bash
+cat ~/.ssh/id_rsa.pub | ssh user@server "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
 ```
 
-***2. Create a timer file /etc/systemd/system/myjob.timer***
+### Step 3: Test login
+```bash
+ssh user@server
+```
+You should login without password.
 
-```bash 
+---
 
-[Unit]
-Description=Run my job every 10 minutes
+## 24.3 Caching SSH Keys (ssh-agent)
 
-[Timer]
-OnBootSec=10min
-OnUnitActiveSec=10min
-Unit=myjob.service
+Caching lets you unlock your private key once, not every time you SSH.
 
-[Install]
-WantedBy=timers.target
-
+Start the agent:
+```bash
+eval $(ssh-agent)
 ```
 
-***3. Enable and Start*** 
-
-```bash 
-systemctl enale --now myjob.timer 
+Add your private key:
+```bash
+ssh-add
 ```
 
-***4. Check status***
+To list cached keys:
+```bash
+ssh-add -l
+```
 
-```bash 
-systemctl list-timers 
-``` 
+Useful for:
+- rsync
+- git
+- automation scripts
+
+---
+
+## 24.4 Defining SSH Client Configuration
+
+Edit client config file:
+```
+~/.ssh/config
+```
+
+Example:
+```
+Host myserver
+    HostName 192.168.1.10
+    User root
+    Port 22
+    IdentityFile ~/.ssh/id_rsa
+```
+
+Then you can simply run:
+```bash
+ssh myserver
+```
+
+RHCSA exam tip:
+You may need to connect to multiple servers efficiently — this helps.
+
+---
+
+## 24.5 Exploring Common SSH Server Options
+
+Edit:
+```
+/etc/ssh/sshd_config
+```
+
+Common settings:
+
+- `Port 22` — Change port for security  
+- `PermitRootLogin no` — Disable direct root login  
+- `PasswordAuthentication no` — Force key-based login  
+- `PubkeyAuthentication yes` — Enable key-based login  
+- `AllowUsers user1 user2` — Restrict login to certain users  
+- `X11Forwarding no` — Disable GUI forwarding
+
+After editing:
+```bash
+sudo systemctl restart sshd
+sudo systemctl enable sshd
+```
+
+Check status:
+```bash
+systemctl status sshd
+```
+
+---
+
+## 24.6 Copying Files Securely (scp)
+
+Copy from local → remote:
+```bash
+scp file.txt user@server:/path/
+```
+
+Copy folder:
+```bash
+scp -r dir/ user@server:/path/
+```
+
+Copy from remote → local:
+```bash
+scp user@server:/path/file.txt .
+```
+
+---
+
+## 24.7 Synchronizing Files Securely (rsync over SSH)
+
+Basic sync:
+```bash
+rsync -avz file.txt user@server:/path/
+```
+
+Sync while deleting removed files:
+```bash
+rsync -avz --delete /src/ user@server:/dest/
+```
+
+Sync directory to remote:
+```bash
+rsync -avz /var/www/ user@server:/backup/www/
+```
+
+rsync uses SSH by default.
+
+---
+
+# RHCSA Exam Focus Points
+
+You must be able to:
+
+- Generate SSH keys
+- Configure key-based authentication
+- Disable root login
+- Modify `sshd_config` and restart service
+- Copy files using scp
+- Sync directories with rsync
+- Use ssh-agent for key caching
+
+Good luck with your lab practice — want practice tasks or a quick quiz next?
